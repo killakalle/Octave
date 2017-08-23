@@ -1,0 +1,1 @@
+more offtheta = [1;2]x = [3;4]n = length(x)% with loopsprediction = 0.0;for j = 1:n,  prediction += theta(j) * x(j);end;sprintf("loops - prediction: %f", prediction)% with vectorizationprediction = theta' * x;sprintf("Vectorized - prediction: %f", prediction)X = [ones(97, 1) rand(97,1)];temp =  X(1,:) * temp

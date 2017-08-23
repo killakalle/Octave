@@ -1,0 +1,1 @@
+squareThis(5)[a,b] = squareCubeThis(5)
