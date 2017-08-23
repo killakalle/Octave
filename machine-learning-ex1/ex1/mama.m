@@ -1,0 +1,1 @@
+function A = mama(n)%MAMA Example function in octave%   A = MAMA() is an example function that returns a magic matrix of dimension n by nA = magic(n);end
