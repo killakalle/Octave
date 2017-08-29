@@ -36,17 +36,20 @@ grad = zeros(size(theta));
 %           grad = grad + YOUR_CODE_HERE (using the temp variable)
 %
 
+h = sigmoid(X * theta);
+theta_reg = [0; theta(2:end, :)];   % set theta_0 to 0 because it should not be regularized
 
 
+J = 1/m * (-y' * log(h) - (1-y)' * log(1-h)) ...
+      + (lambda / (2*m)) * theta_reg' * theta_reg;
 
 
-
-
-
+grad = 1/m * X' * (h-y) ...
+      + (lambda / m) * theta_reg;
 
 
 % =============================================================
 
-grad = grad(:);
+grad = grad(:); % forces grad to be a column vector; does nothing if grad is already a column vector
 
 end

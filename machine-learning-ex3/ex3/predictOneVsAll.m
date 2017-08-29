@@ -30,10 +30,12 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
+[p, ix] = max(X * all_theta', [], 2);
 
 
-
-
+% ix is the index of the column with the highest classifier, 
+% thus it gives the classification itself
+p = ix; 
 
 
 % =========================================================================

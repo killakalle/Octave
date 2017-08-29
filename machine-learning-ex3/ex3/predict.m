@@ -22,12 +22,19 @@ p = zeros(size(X, 1), 1);
 %
 
 
+% Add ones to the X data matrix
+X = [ones(m, 1) X];
 
+z_2 = sigmoid(Theta1 * X');
 
+% Add bias node to z_2
+z_2 = [ones(1, size(z_2, 2)); z_2 ];
 
+z_3 = sigmoid(Theta2 * z_2);
+z_3t = z_3';
 
-
-
+[v, iv] = max(z_3t, [], 2);
+p = iv;
 
 % =========================================================================
 

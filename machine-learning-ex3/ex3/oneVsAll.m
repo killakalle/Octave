@@ -50,14 +50,19 @@ X = [ones(m, 1) X];
 %
 
 
+% Set Initial theta
+initial_theta = zeros(n + 1, 1);
+iterations = 50;
+     
+% Set options for fmincg
+options = optimset('GradObj', 'on', 'MaxIter', iterations);
 
-
-
-
-
-
-
-
+% Train classifiers for all labels
+for c=1:num_labels
+  all_theta(c,:) = ...
+         fmincg (@(t)(lrCostFunction(t, X, (y == c), lambda)), ...
+                 initial_theta, options);
+end
 
 
 % =========================================================================

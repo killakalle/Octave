@@ -84,6 +84,7 @@ for i = 1:m
     % Pause with quit option
     s = input('Paused - press enter to continue, q to exit:','s');
     if s == 'q'
+      close all;
       break
     end
 end
