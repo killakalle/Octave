@@ -17,7 +17,7 @@ s = ones(1,m);
 %size_X = size(X)
 %size_theta = size(theta)
 
-J = 1 / (2*m) * (s * (X * theta - y).^2);
+J = 1 / (2*m) * (s * (X * theta - y).^2);    %using s to summarize result vector into single value
 
 % vectorized NOT WORKING PROPERLY
 %grad = 1/(2*m) * X' * (X * theta - y);

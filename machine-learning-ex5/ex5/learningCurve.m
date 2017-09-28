@@ -54,7 +54,26 @@ error_val   = zeros(m, 1);
 % ---------------------- Sample Solution ----------------------
 
 
+for i = 1:m
 
+
+  % Use only subset for calculation for test set error
+  Xlearn = X(1:i, :);
+  ylearn = y(1:i);
+  
+  Xval_learn = Xval(1:i, :);
+  yval_learn = yval(1:i);  
+
+  % Train model against test set and acquire theta
+  theta= trainLinearReg(Xlearn, ylearn, lambda);
+  
+  % Calculate test error (using cost function with lambda = 0)
+  error_train(i) = linearRegCostFunction(Xlearn, ylearn, theta, 0);
+  error_val(i) = linearRegCostFunction(Xval, yval, theta, 0);
+  
+  
+
+end
 
 
 

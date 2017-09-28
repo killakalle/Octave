@@ -40,7 +40,18 @@ error_val = zeros(length(lambda_vec), 1);
 %
 
 
+for i = 1:length(lambda_vec)
 
+  lambda = lambda_vec(i);
+
+  % Train model against test set and acquire theta
+  theta = trainLinearReg(X, y, lambda);
+  
+  % Calculate test error (using cost function with lambda = 0)
+  error_train(i) = linearRegCostFunction(X, y, theta, 0);
+  error_val(i) = linearRegCostFunction(Xval, yval, theta, 0);
+           
+end
 
 
 

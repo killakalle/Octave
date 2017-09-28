@@ -164,7 +164,8 @@ pause;
 %  lambda to see how the fit and learning curve change.
 %
 
-lambda = 0;
+%lambda = 0; % default
+lambda = 3;
 [theta] = trainLinearReg(X_poly, y, lambda);
 
 % Plot training data and fit
@@ -218,3 +219,23 @@ end
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
+
+%% Optional 1
+
+lambda = 3;
+
+% Train model against test set and acquire theta
+theta = trainLinearReg(X_poly, y, lambda)
+  
+% Calculate test error (using cost function with lambda = 0)
+error_test = linearRegCostFunction(X_poly_test, ytest, theta, 0)
+
+%% Optional 2: Plotting learning curves with randomly selected examples
+X_all = [ X; Xval; Xtest ];
+y_all = [ y; yval; ytest ];
+plotRandomLearningCurves(X_all, y_all);
+
+
+
+
